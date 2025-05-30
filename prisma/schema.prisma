@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../prisma/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id   String @id @default(uuid())
+  name String @db.VarChar(200) @unique
+
+  authorsBooks AuthorBook[]
+  wishlists    Wishlist[]
+
+  @@map("authors")
+}
+
+model AuthorBook {
+  id String @id @default(uuid())
+
+  bookId    String @map("book_id")
+  authorsId String @map("authors_id")
+
+  author Author @relation(fields: [authorsId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  book   Book   @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("authors_books")
+}
+
+model Book {
+  id          String @id @default(uuid()) @unique
+  title       String @db.VarChar(300) @unique
+  synopsis    String
+  slug        String @db.VarChar(200)
+  numberPages Int
+  isbn        String @db.VarChar(15)
+  stock       Int    @default(1)
+  imageUrl    String
+
+  yearPublished Int @map("year_published")
+
+  isDeleted Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  reviews         Review[]
+  wishlists       Wishlist[]
+  authorsBooks    AuthorBook[]
+  booksCategories BookCategory[]
+
+  languageId  String @map("language_id")
+  editorialId String @map("editorial_id")
+
+  editorial Editorial @relation(fields: [editorialId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  language  Language  @relation(fields: [languageId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("books")
+}
+
+model BookCategory {
+  id String @id @default(uuid())
+
+  bookId     String @map("book_id")
+  categoryId String @map("category_id")
+
+  book     Book     @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("books_categories")
+}
+
+model Category {
+  id   String @id @default(uuid()) @unique
+  name String @db.VarChar(200) @unique
+
+  booksCategories BookCategory[]
+
+  @@map("categories")
+}
+
+model Editorial {
+  id   String @id @default(uuid())
+  name String @db.VarChar @unique
+
+  isDeleted Boolean @default(false)
+
+  books Book[]
+
+  @@map("editorials")
+}
+
+model Language {
+  id    String @id @default(uuid())
+  name  String @db.VarChar
+  code  String @db.VarChar(10)
+  books Book[]
+
+  @@map("languages")
+}
+
+model Review {
+  id String @id @default(uuid())
+
+  userId String @map("user_id")
+  bookId String @map("book_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  book Book @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("reviews")
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  password      String?
+  reviews       Review[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Wishlist {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  bookId     String   @map("book_id")
+  created_at DateTime @default(now())
+  book       Book     @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  author     Author   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("wishlists")
+}

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  todosDB:
+    image: postgres:15.3
+    container_name: books-store
+    restart: always
+    ports:
+      - 5439:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ~/postgres-data/postgres-bookstore:/var/lib/postgresql/data
