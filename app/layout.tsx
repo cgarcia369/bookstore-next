@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playwrite_HU } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
+import NavBar from "@/modules/ui/components/nav-bar/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +13,9 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"]
+});
+const playwriteHU = Playwrite_HU({
+  variable: "--font-playwrite-hu"
 });
 
 export const metadata: Metadata = {
@@ -26,8 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}  antialiased px-4 md:px-8 lg:px-16 xl:px-32`}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${playwriteHU.variable}  antialiased px-4 md:px-8 lg:px-16 xl:px-32`}
+      >
+        <ThemeProvider>
+          <NavBar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
