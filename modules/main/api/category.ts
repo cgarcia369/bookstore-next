@@ -22,10 +22,10 @@ const getPopularCategories = () => {
     take: 10
   });
 };
-export const getCategoriesKey = "get-categories";
+export const getPopularCategoriesKey = "get-categories";
 
 export const getPopularCategoriesQuery = () => {
-  return unstable_cache(async () => getPopularCategories(), [getCategoriesKey], {
-    revalidate: 1
+  return unstable_cache(async () => getPopularCategories(), [getPopularCategoriesKey], {
+    revalidate: 60 * 60 * 24
   })();
 };

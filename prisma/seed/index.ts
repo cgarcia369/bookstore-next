@@ -63,9 +63,20 @@ const createCategoriesIfNotExists = async (categories: string[]) => {
     })
   );
 };
+const createDefaultUser = () => {
+  return prisma.user.create({
+    data: {
+      name: "Test user",
+      image: "https://picsum.photos/200/300?random=1",
+      emailVerified: new Date(),
+      createdAt: new Date()
+    }
+  });
+};
 const seedDb = async () => {
   console.log("Seeding database with books...");
   await flushDb();
+  const defaultUser = await createDefaultUser();
   const spanishLanguage = await prisma.language.create({
     data: {
       name: "Español",
@@ -99,6 +110,7 @@ const seedDb = async () => {
         imageUrl: foundItem.volumeInfo.imageLinks.thumbnail,
         title: title,
         isbn,
+        price: Math.random() * 100 + 1,
         editorial: {
           connect: {
             id: editorialId
@@ -131,7 +143,14 @@ const seedDb = async () => {
             }
           }))
         },
-        stock: Math.random() * 10 + 1
+        stock: Math.random() * 10 + 1,
+        reviews: {
+          create: {
+            rating: Math.floor(Math.random() * 5) + 1,
+            userId: defaultUser.id,
+            comment: "This is a sample review for the book."
+          }
+        }
       }
     });
   }

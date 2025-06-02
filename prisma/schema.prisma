@@ -39,6 +39,7 @@ model Book {
   isbn        String @db.VarChar(15)
   stock       Int    @default(1)
   imageUrl    String
+  price       Float  @default(0.0)
 
   yearPublished Int @map("year_published")
 
@@ -108,6 +109,8 @@ model Review {
   userId String @map("user_id")
   bookId String @map("book_id")
 
+  comment   String   @db.Text
+  rating    Int      @default(0)
   createdAt DateTime @default(now()) @map("created_at")
 
   book Book @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
