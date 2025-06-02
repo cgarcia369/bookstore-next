@@ -1,44 +1,31 @@
 import React from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import CategoryItem from "@/modules/main/components/categories/CategoryItem";
+import { getPopularCategoriesQuery } from "@/lib/api";
+import { getCategorySlug } from "@/modules/main/utils/getCategorySlug";
 
-const categoriesList = [
-  {
-    imageUrl: "/img/categories/fiction.jpg",
-    title: "Ficción",
-    url: "/categories/fiction",
-    alt: "Ficción"
-  },
-  {
-    imageUrl: "https://picsum.photos/200/300",
-    title: "No Ficción",
-    url: "/categories/non-fiction",
-    alt: "No Ficción"
-  },
-  {
-    imageUrl: "https://picsum.photos/200/300",
-    title: "Ciencia",
-    url: "/categories/science",
-    alt: "Ciencia"
-  },
-  {
-    imageUrl: "https://picsum.photos/200/300",
-    title: "Historia",
-    url: "/categories/history",
-    alt: "Historia"
-  }
-];
-const Categories = () => {
+const Categories = async () => {
+  const categories = await getPopularCategoriesQuery();
   return (
-    <div className="flex justify-evenly my-10">
-      {categoriesList.map((category, index) => (
-        <CategoryItem
-          key={index}
-          imageUrl={category.imageUrl}
-          title={category.title}
-          url={category.url}
-          alt={category.alt}
-        />
-      ))}
+    <div className="my-10">
+      <h2 className="my-10 text-2xl text-center">Categorías Populares</h2>
+      <Carousel className="w-full">
+        <CarouselContent className="w-full">
+          {categories.map((category, index) => (
+            <CarouselItem className="basis-1/8" key={index}>
+              <CategoryItem
+                key={index}
+                imageUrl={category.imageUrl}
+                title={category.name}
+                url={getCategorySlug(category.slug)}
+                alt={category.name}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 };

@@ -10,7 +10,7 @@ datasource db {
 
 model Author {
   id   String @id @default(uuid())
-  name String @db.VarChar(200) @unique
+  name String @unique @db.VarChar(200)
 
   authorsBooks AuthorBook[]
   wishlists    Wishlist[]
@@ -31,8 +31,8 @@ model AuthorBook {
 }
 
 model Book {
-  id          String @id @default(uuid()) @unique
-  title       String @db.VarChar(300) @unique
+  id          String @id @unique @default(uuid())
+  title       String @unique @db.VarChar(300)
   synopsis    String
   slug        String @db.VarChar(200)
   numberPages Int
@@ -72,8 +72,10 @@ model BookCategory {
 }
 
 model Category {
-  id   String @id @default(uuid()) @unique
-  name String @db.VarChar(200) @unique
+  id       String @id @unique @default(uuid())
+  name     String @unique @db.VarChar(200)
+  slug     String @db.VarChar(200)
+  imageUrl String @db.VarChar(500)
 
   booksCategories BookCategory[]
 
@@ -82,7 +84,7 @@ model Category {
 
 model Editorial {
   id   String @id @default(uuid())
-  name String @db.VarChar @unique
+  name String @unique @db.VarChar
 
   isDeleted Boolean @default(false)
 

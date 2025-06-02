@@ -8,8 +8,8 @@ const HeadLineRightSide = () => {
     <div className="flex flex-col items-center justify-between text-(--primary) relative w-[800px]">
       <div className="z-20 text-center">
         <div className="flex mx-auto justify-center">
-          <h1 className={`text-4xl text-(--primary)`}>¿Buscas un libro?</h1>
-          <GiBookCover className="text-(--secondary) ml-6" size={40} />
+          <h1 className={`text-5xl text-(--primary)`}>¿Buscas un libro?</h1>
+          <GiBookCover className="text-(--secondary) ml-6" size={50} />
         </div>
         <h2 className="text-3xl text-nowrap mt-6">
           Encuentralo en <span className="font-(family-name:--font-playwrite-hu) text-(--secondary)">Bookstore</span>

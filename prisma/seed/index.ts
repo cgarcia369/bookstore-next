@@ -53,7 +53,11 @@ const createCategoriesIfNotExists = async (categories: string[]) => {
         return existingCategory.id;
       }
       const newCategory = await prisma.category.create({
-        data: { name: categoryTranslated }
+        data: {
+          name: categoryTranslated,
+          slug: slugify(categoryTranslated),
+          imageUrl: `https://picsum.photos/200/300?random=${Math.floor(Math.random() * 1000)}`
+        }
       });
       return newCategory.id;
     })
