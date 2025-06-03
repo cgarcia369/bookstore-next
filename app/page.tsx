@@ -2,6 +2,7 @@ import HeadLine from "@/modules/main/components/headline/HeadLine";
 import Categories from "@/modules/main/components/categories/Categories";
 import Books from "@/modules/main/components/books/Books";
 import MustRead from "@/modules/main/components/must-read/MustRead";
+import Coupon from "@/modules/main/components/coupon/Coupon";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Categories />
       <Books />
       <MustRead />
+      <Coupon />
     </>
   );
 }

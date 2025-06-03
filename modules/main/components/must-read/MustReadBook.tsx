@@ -14,7 +14,10 @@ const MustReadBook = ({ className, imageSrc, alt, size }: MustReadBookProps) => 
   return (
     <>
       <div
-        className={cn(className, `relative z-20 rounded overflow-hidden`)}
+        className={cn(
+          className,
+          `relative z-20 rounded overflow-hidden group transition-all cursor-pointer hover:shadow-2xl hover:shadow-secondary/50`
+        )}
         style={{
           height: `${size}px`,
           width: `${calculatedWidth}px`
