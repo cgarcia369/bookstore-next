@@ -8,7 +8,7 @@ import SearchInput from "@/modules/ui/components/nav-bar/SearchInput";
 const NavBar = () => {
   return (
     <>
-      <div className="flex items-center justify-between py-6 text-(--primary)">
+      <div className="flex items-center justify-between py-6 text-(--primary) general-padding">
         <h1 className="font-(family-name:--font-playwrite-hu) text-3xl">Bookstore</h1>
         <div className="flex gap-x-12 items-end h-full">
           <NavBarLeftSideItem text={"Categorias"} url={""} />
