@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import NavBar from "@/modules/ui/components/nav-bar/NavBar";
+import Footer from "@/modules/ui/components/footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <ThemeProvider>
           <NavBar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

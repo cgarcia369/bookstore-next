@@ -4,7 +4,7 @@ import HeadLineRightSide from "@/modules/main/components/headline/HeadLineRightS
 
 const MyComponent = () => {
   return (
-    <div className="flex flex-row items-center justify-between px-10 h-[700px] general-padding">
+    <div className="flex flex-row items-center justify-between px-10 h-[700px] general-margin">
       <HeadLineLeftSide />
       <HeadLineRightSide />
     </div>

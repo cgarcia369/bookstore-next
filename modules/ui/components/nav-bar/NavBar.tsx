@@ -8,7 +8,7 @@ import SearchInput from "@/modules/ui/components/nav-bar/SearchInput";
 const NavBar = () => {
   return (
     <>
-      <div className="flex items-center justify-between py-6 text-(--primary) general-padding">
+      <nav className="flex items-center justify-between py-6 text-(--primary) general-padding sticky top-0 bg-background z-40">
         <h1 className="font-(family-name:--font-playwrite-hu) text-3xl">Bookstore</h1>
         <div className="flex gap-x-12 items-end h-full">
           <NavBarLeftSideItem text={"Categorias"} url={""} />
@@ -20,7 +20,7 @@ const NavBar = () => {
           <NavBarRightSideItem url={""} text="Cuenta" icon={<MdOutlineAccountCircle />} />
           <NavBarRightSideItem url={""} text="Carrito" icon={<TiShoppingCart />} />
         </div>
-      </div>
+      </nav>
     </>
   );
 };
