@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import NavBar from "@/modules/ui/components/nav-bar/NavBar";
 import Footer from "@/modules/ui/components/footer/Footer";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AppSidebar from "@/modules/ui/components/side-bar/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${playwriteHU.variable}  antialiased `}>
         <ThemeProvider>
           <NavBar />
+          <AppSidebar />
           {children}
           <Footer />
         </ThemeProvider>

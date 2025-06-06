@@ -11,7 +11,7 @@ const NavBarRightSideItem = ({ url, icon, text }: NavBarRightSideProps) => {
     <Link href={url}>
       <div className="flex items-center gap-x-2">
         {cloneElement(icon, { size: 30 })}
-        <h2>{text}</h2>
+        <h2 className="hidden lg:block">{text}</h2>
       </div>
     </Link>
   );
