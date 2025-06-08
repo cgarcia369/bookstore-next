@@ -10,23 +10,23 @@ const alumniSans = Alumni_Sans({
 });
 const Coupon = () => {
   return (
-    <div className="flex general-margin bg-primary rounded mt-40 mb-20 overflow-hidden">
+    <div className="flex-wrap lg:flex-nowrap flex general-margin bg-primary rounded mt-40 mb-20 overflow-hidden">
       <Image
         src="/img/coupon/background.jpg"
         alt="Coupon background"
         width={800}
         height={800}
-        className="object-cover w-[600px] h-auto"
+        className="object-cover w-full lg:w-[600px] h-auto"
       />
-      <div className="text-white mx-20 my-10 flex flex-col gap-y-5">
-        <h3 className={`${alumniSans.className} text-2xl border border-white p-0.5 px-1 w-max rounded`}>
+      <div className="text-white mx-4 lg:mx-20 my-10 flex flex-col gap-y-5">
+        <h3 className={`${alumniSans.className} text-xl lg:text-2xl border border-white p-0.5 px-1 w-max rounded`}>
           Oferta limitada
         </h3>
-        <h2 className="text-3xl">
+        <h2 className="text-2xl lg:text-3xl">
           Regístrate gratis antes del <span className="font-bold">31 de diciembre</span> y recibe un{" "}
           <span className="bg-secondary text-white px-1 rounded">50%</span> de descuento en tu primera compra.
         </h2>
-        <h2 className="text-2xl">
+        <h2 className="text-base lg:text-2xl">
           Explora nuestra selección, elige tus productos favoritos y usa el código de descuento al finalizar la compra.
         </h2>
         <h3>¡Es fácil y rápido!</h3>

@@ -7,7 +7,7 @@ import Link from "next/link";
 const Books = async () => {
   const booksResult = await getPopularBooksQuery();
   return (
-    <div className="mt-40 mb-20 general-margin cursor-pointer">
+    <div className="mt-20 lg:mt-40 mb-20 general-margin cursor-pointer">
       <div className="flex items-center my-10">
         <h2 className="text-2xl flex-1 text-primary">Libros Populares</h2>
         <Link href={""}>

@@ -6,11 +6,11 @@ type MustReadBookProps = {
   className?: string;
   imageSrc: StaticImport;
   alt?: string;
-  size: number;
+  size?: number;
 };
 
 const MustReadBook = ({ className, imageSrc, alt, size }: MustReadBookProps) => {
-  const calculatedWidth = (size * 63) / 100;
+  const calculatedWidth = size && (size * 63) / 100;
   return (
     <>
       <div
@@ -18,10 +18,14 @@ const MustReadBook = ({ className, imageSrc, alt, size }: MustReadBookProps) => 
           className,
           `relative z-20 rounded overflow-hidden group transition-all cursor-pointer hover:shadow-2xl hover:shadow-secondary/50`
         )}
-        style={{
-          height: `${size}px`,
-          width: `${calculatedWidth}px`
-        }}
+        style={
+          size
+            ? {
+                height: `${size}px`,
+                width: `${calculatedWidth}px`
+              }
+            : undefined
+        }
       >
         <Image
           src={imageSrc}

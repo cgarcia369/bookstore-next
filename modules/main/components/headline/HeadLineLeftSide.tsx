@@ -8,7 +8,7 @@ const HeadLineLeftSide = () => {
       width={1000}
       height={1000}
       alt={"Head line image"}
-      className="w-[550px] h-[550px] object-cover"
+      className="hidden lg:block w-[550px] h-[550px] object-cover"
     />
   );
 };

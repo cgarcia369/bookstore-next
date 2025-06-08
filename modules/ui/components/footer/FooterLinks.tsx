@@ -11,7 +11,7 @@ const links = [
 ];
 const FooterLinks = () => {
   return (
-    <ul className="flex flex-col gap-y-3">
+    <ul className="w-1/2 lg:w-auto flex flex-col gap-y-3">
       {links.map((link, index) => (
         <Link href={link.url} key={index}>
           <li className="flex gap-x-2 items-center">

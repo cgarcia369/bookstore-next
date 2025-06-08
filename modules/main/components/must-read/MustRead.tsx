@@ -1,11 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import imgSrc from "@/public/img/mustread/background.jpg";
-import bookOneSrc from "@/public/img/mustread/book1.jpg";
-import bookTwoSrc from "@/public/img/mustread/book2.jpg";
-import bookThreeSrc from "@/public/img/mustread/book3.jpg";
 import { Alumni_Sans } from "next/font/google";
-import MustReadBook from "@/modules/main/components/must-read/MustReadBook";
+import MustReadDevice from "@/modules/main/components/must-read/MustReadDevice";
+import MustReadDesktop from "@/modules/main/components/must-read/MustReadDesktop";
 const alumniSans = Alumni_Sans({
   variable: "--font-alumni-sans",
   subsets: ["latin"]
@@ -18,11 +16,8 @@ const MustRead = () => {
       >
         Explora los mejores mundos de fantasía con estos libros.
       </h2>
-      <div className="mx-auto mt-20 justify-center flex gap-x-12 items-center">
-        <MustReadBook imageSrc={bookTwoSrc} className={"opacity-70"} alt={"Book 1"} size={300} />
-        <MustReadBook imageSrc={bookOneSrc} alt={"Book 2"} size={400} />
-        <MustReadBook imageSrc={bookThreeSrc} className={"opacity-70"} alt={"Book 1"} size={300} />
-      </div>
+      <MustReadDesktop />
+      <MustReadDevice />
       <Image
         src={imgSrc}
         alt={"must read background"}
