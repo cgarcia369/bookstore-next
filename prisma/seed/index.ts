@@ -3,6 +3,7 @@ import ISBNList from "./isbnjson.json";
 import BooksRequest from "./booksrequest.json";
 import prisma from "@/lib/prisma";
 import slugify from "slugify";
+import { algoliaServer } from "@/lib/algoliaServer";
 
 const translateText = async (text: string): Promise<string> => {
   return await translate(text, "es");
@@ -73,16 +74,19 @@ const createDefaultUser = () => {
     }
   });
 };
-const seedDb = async () => {
-  console.log("Seeding database with books...");
-  await flushDb();
-  const defaultUser = await createDefaultUser();
-  const spanishLanguage = await prisma.language.create({
+const createSpanishLanguage = () => {
+  return prisma.language.create({
     data: {
       name: "Español",
       code: "es"
     }
   });
+};
+const seedDb = async () => {
+  console.log("Seeding database with books...");
+  await flushDb();
+  const defaultUser = await createDefaultUser();
+  const spanishLanguage = await createSpanishLanguage();
   for (const isbn of ISBNList) {
     const foundItem = BooksRequest.find((x) =>
       x.volumeInfo.industryIdentifiers.some(({ identifier }) => identifier === isbn)
@@ -155,4 +159,29 @@ const seedDb = async () => {
     });
   }
 };
-seedDb();
+const indexInfoAlgolia = async () => {
+  const books = await prisma.book.findMany({
+    include: {
+      editorial: true,
+      language: true,
+      authorsBooks: {
+        include: {
+          author: true
+        }
+      },
+      booksCategories: {
+        include: {
+          category: true
+        }
+      }
+    }
+  });
+  return algoliaServer.saveObjects({
+    indexName: "books_index",
+    objects: books
+  });
+};
+(async () => {
+  await seedDb();
+  await indexInfoAlgolia();
+})();
