@@ -4315,6 +4315,7 @@ export namespace Prisma {
     numberPages: number | null
     stock: number | null
     price: number | null
+    avgRating: number | null
     yearPublished: number | null
   }
 
@@ -4322,6 +4323,7 @@ export namespace Prisma {
     numberPages: number | null
     stock: number | null
     price: number | null
+    avgRating: number | null
     yearPublished: number | null
   }
 
@@ -4335,6 +4337,7 @@ export namespace Prisma {
     stock: number | null
     imageUrl: string | null
     price: number | null
+    avgRating: number | null
     yearPublished: number | null
     isDeleted: boolean | null
     createdAt: Date | null
@@ -4352,6 +4355,7 @@ export namespace Prisma {
     stock: number | null
     imageUrl: string | null
     price: number | null
+    avgRating: number | null
     yearPublished: number | null
     isDeleted: boolean | null
     createdAt: Date | null
@@ -4369,6 +4373,7 @@ export namespace Prisma {
     stock: number
     imageUrl: number
     price: number
+    avgRating: number
     yearPublished: number
     isDeleted: number
     createdAt: number
@@ -4382,6 +4387,7 @@ export namespace Prisma {
     numberPages?: true
     stock?: true
     price?: true
+    avgRating?: true
     yearPublished?: true
   }
 
@@ -4389,6 +4395,7 @@ export namespace Prisma {
     numberPages?: true
     stock?: true
     price?: true
+    avgRating?: true
     yearPublished?: true
   }
 
@@ -4402,6 +4409,7 @@ export namespace Prisma {
     stock?: true
     imageUrl?: true
     price?: true
+    avgRating?: true
     yearPublished?: true
     isDeleted?: true
     createdAt?: true
@@ -4419,6 +4427,7 @@ export namespace Prisma {
     stock?: true
     imageUrl?: true
     price?: true
+    avgRating?: true
     yearPublished?: true
     isDeleted?: true
     createdAt?: true
@@ -4436,6 +4445,7 @@ export namespace Prisma {
     stock?: true
     imageUrl?: true
     price?: true
+    avgRating?: true
     yearPublished?: true
     isDeleted?: true
     createdAt?: true
@@ -4540,6 +4550,7 @@ export namespace Prisma {
     stock: number
     imageUrl: string
     price: number
+    avgRating: number | null
     yearPublished: number
     isDeleted: boolean
     createdAt: Date
@@ -4576,6 +4587,7 @@ export namespace Prisma {
     stock?: boolean
     imageUrl?: boolean
     price?: boolean
+    avgRating?: boolean
     yearPublished?: boolean
     isDeleted?: boolean
     createdAt?: boolean
@@ -4600,6 +4612,7 @@ export namespace Prisma {
     stock?: boolean
     imageUrl?: boolean
     price?: boolean
+    avgRating?: boolean
     yearPublished?: boolean
     isDeleted?: boolean
     createdAt?: boolean
@@ -4619,6 +4632,7 @@ export namespace Prisma {
     stock?: boolean
     imageUrl?: boolean
     price?: boolean
+    avgRating?: boolean
     yearPublished?: boolean
     isDeleted?: boolean
     createdAt?: boolean
@@ -4638,6 +4652,7 @@ export namespace Prisma {
     stock?: boolean
     imageUrl?: boolean
     price?: boolean
+    avgRating?: boolean
     yearPublished?: boolean
     isDeleted?: boolean
     createdAt?: boolean
@@ -4645,7 +4660,7 @@ export namespace Prisma {
     editorialId?: boolean
   }
 
-  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "synopsis" | "slug" | "numberPages" | "isbn" | "stock" | "imageUrl" | "price" | "yearPublished" | "isDeleted" | "createdAt" | "languageId" | "editorialId", ExtArgs["result"]["book"]>
+  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "synopsis" | "slug" | "numberPages" | "isbn" | "stock" | "imageUrl" | "price" | "avgRating" | "yearPublished" | "isDeleted" | "createdAt" | "languageId" | "editorialId", ExtArgs["result"]["book"]>
   export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     reviews?: boolean | Book$reviewsArgs<ExtArgs>
     wishlists?: boolean | Book$wishlistsArgs<ExtArgs>
@@ -4684,6 +4699,7 @@ export namespace Prisma {
       stock: number
       imageUrl: string
       price: number
+      avgRating: number | null
       yearPublished: number
       isDeleted: boolean
       createdAt: Date
@@ -5127,6 +5143,7 @@ export namespace Prisma {
     readonly stock: FieldRef<"Book", 'Int'>
     readonly imageUrl: FieldRef<"Book", 'String'>
     readonly price: FieldRef<"Book", 'Float'>
+    readonly avgRating: FieldRef<"Book", 'Float'>
     readonly yearPublished: FieldRef<"Book", 'Int'>
     readonly isDeleted: FieldRef<"Book", 'Boolean'>
     readonly createdAt: FieldRef<"Book", 'DateTime'>
@@ -16383,6 +16400,7 @@ export namespace Prisma {
     stock: 'stock',
     imageUrl: 'imageUrl',
     price: 'price',
+    avgRating: 'avgRating',
     yearPublished: 'yearPublished',
     isDeleted: 'isDeleted',
     createdAt: 'createdAt',
@@ -16701,6 +16719,7 @@ export namespace Prisma {
     stock?: IntFilter<"Book"> | number
     imageUrl?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
+    avgRating?: FloatNullableFilter<"Book"> | number | null
     yearPublished?: IntFilter<"Book"> | number
     isDeleted?: BoolFilter<"Book"> | boolean
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -16724,6 +16743,7 @@ export namespace Prisma {
     stock?: SortOrder
     imageUrl?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrderInput | SortOrder
     yearPublished?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
@@ -16750,6 +16770,7 @@ export namespace Prisma {
     stock?: IntFilter<"Book"> | number
     imageUrl?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
+    avgRating?: FloatNullableFilter<"Book"> | number | null
     yearPublished?: IntFilter<"Book"> | number
     isDeleted?: BoolFilter<"Book"> | boolean
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -16773,6 +16794,7 @@ export namespace Prisma {
     stock?: SortOrder
     imageUrl?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrderInput | SortOrder
     yearPublished?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
@@ -16798,6 +16820,7 @@ export namespace Prisma {
     stock?: IntWithAggregatesFilter<"Book"> | number
     imageUrl?: StringWithAggregatesFilter<"Book"> | string
     price?: FloatWithAggregatesFilter<"Book"> | number
+    avgRating?: FloatNullableWithAggregatesFilter<"Book"> | number | null
     yearPublished?: IntWithAggregatesFilter<"Book"> | number
     isDeleted?: BoolWithAggregatesFilter<"Book"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Book"> | Date | string
@@ -17461,6 +17484,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -17482,6 +17506,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -17503,6 +17528,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17524,6 +17550,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17545,6 +17572,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -17562,6 +17590,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -17577,6 +17606,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18271,6 +18301,17 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -18309,6 +18350,11 @@ export namespace Prisma {
     isNot?: LanguageWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type ReviewOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -18327,6 +18373,7 @@ export namespace Prisma {
     stock?: SortOrder
     imageUrl?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrder
     yearPublished?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
@@ -18338,6 +18385,7 @@ export namespace Prisma {
     numberPages?: SortOrder
     stock?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrder
     yearPublished?: SortOrder
   }
 
@@ -18351,6 +18399,7 @@ export namespace Prisma {
     stock?: SortOrder
     imageUrl?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrder
     yearPublished?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
@@ -18368,6 +18417,7 @@ export namespace Prisma {
     stock?: SortOrder
     imageUrl?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrder
     yearPublished?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
@@ -18379,6 +18429,7 @@ export namespace Prisma {
     numberPages?: SortOrder
     stock?: SortOrder
     price?: SortOrder
+    avgRating?: SortOrder
     yearPublished?: SortOrder
   }
 
@@ -18412,6 +18463,22 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -18590,11 +18657,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type AccountProviderProviderAccountIdCompoundUniqueInput = {
@@ -19023,6 +19085,14 @@ export namespace Prisma {
 
   export type FloatFieldUpdateOperationsInput = {
     set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -19598,6 +19668,17 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -19646,6 +19727,33 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -19682,17 +19790,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -19724,17 +19821,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -19882,6 +19968,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -19902,6 +19989,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -19961,6 +20049,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19981,6 +20070,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20254,6 +20344,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20274,6 +20365,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20329,6 +20421,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20349,6 +20442,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20430,6 +20524,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20450,6 +20545,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20499,6 +20595,7 @@ export namespace Prisma {
     stock?: IntFilter<"Book"> | number
     imageUrl?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
+    avgRating?: FloatNullableFilter<"Book"> | number | null
     yearPublished?: IntFilter<"Book"> | number
     isDeleted?: BoolFilter<"Book"> | boolean
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -20516,6 +20613,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20536,6 +20634,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20582,6 +20681,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20602,6 +20702,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -20667,6 +20768,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20687,6 +20789,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21032,6 +21135,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -21052,6 +21156,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -21105,6 +21210,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21125,6 +21231,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21328,6 +21435,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -21344,6 +21452,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21364,6 +21473,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21384,6 +21494,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21400,6 +21511,7 @@ export namespace Prisma {
     stock?: number
     imageUrl: string
     price?: number
+    avgRating?: number | null
     yearPublished: number
     isDeleted?: boolean
     createdAt?: Date | string
@@ -21416,6 +21528,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21436,6 +21549,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21456,6 +21570,7 @@ export namespace Prisma {
     stock?: IntFieldUpdateOperationsInput | number
     imageUrl?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    avgRating?: NullableFloatFieldUpdateOperationsInput | number | null
     yearPublished?: IntFieldUpdateOperationsInput | number
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

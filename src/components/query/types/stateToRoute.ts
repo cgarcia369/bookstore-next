@@ -5,11 +5,15 @@ export type StateToRouteRefineListProp = {
 export type StateToRouteRangeProp = {
   price: string;
 };
+export type StateToRouteRatingProp = {
+  avgRating: number;
+};
 
 export type StateToRouteProp = {
   books_index: {
     refinementList?: StateToRouteRefineListProp;
     range?: StateToRouteRangeProp;
+    ratingMenu?: StateToRouteRatingProp;
   };
 };
 export type RouteState = {
@@ -17,4 +21,5 @@ export type RouteState = {
   category?: string | undefined;
   authors?: string | undefined;
   price?: string;
+  rating?: string;
 };

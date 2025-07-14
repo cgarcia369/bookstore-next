@@ -111,6 +111,7 @@ const seedDb = async () => {
     }
     await prisma.book.create({
       data: {
+        avgRating: Math.floor(Math.random() * 5) + 1,
         imageUrl: foundItem.volumeInfo.imageLinks.thumbnail,
         title: title,
         isbn,

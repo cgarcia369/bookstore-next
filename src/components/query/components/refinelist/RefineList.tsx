@@ -16,7 +16,7 @@ type RefineListProps = {
 const maxItems = 10;
 const RefineList = ({ attribute, title }: RefineListProps) => {
   const [key, setKey] = useState<string>(uuidv4());
-  const { items, refine, searchForItems } = useRefinementList({
+  const { items, refine, searchForItems, canRefine } = useRefinementList({
     attribute,
     operator: "or",
     limit: Infinity
@@ -37,6 +37,7 @@ const RefineList = ({ attribute, title }: RefineListProps) => {
         {items.slice(0, maxItems).map((item) => (
           <div key={item.label} className="flex items-center gap-x-2">
             <Checkbox
+              disabled={!canRefine}
               checked={Boolean(item.isRefined)}
               onCheckedChange={() => {
                 handleChangeItem(item);
@@ -49,7 +50,9 @@ const RefineList = ({ attribute, title }: RefineListProps) => {
           </div>
         ))}
       </div>
-      {canToggleShowMore && <RefineListMoreModal onClickItem={handleChangeItem} items={items} title={title} />}
+      {canToggleShowMore && canRefine && (
+        <RefineListMoreModal onClickItem={handleChangeItem} items={items} title={title} />
+      )}
     </PanelItemWrapper>
   );
 };

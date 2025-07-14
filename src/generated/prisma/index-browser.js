@@ -141,6 +141,7 @@ exports.Prisma.BookScalarFieldEnum = {
   stock: 'stock',
   imageUrl: 'imageUrl',
   price: 'price',
+  avgRating: 'avgRating',
   yearPublished: 'yearPublished',
   isDeleted: 'isDeleted',
   createdAt: 'createdAt',

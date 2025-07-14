@@ -3,6 +3,7 @@ import RefineList from "../refinelist/RefineList";
 import { refineLists } from "../../constants/refinelistItems";
 import Range from "../range/Range";
 import { rangeObj } from "../../constants/rangeItems";
+import Rating from "@/components/query/components/rating/Rating";
 const BooksSearchPanel = () => {
   return (
     <div className="flex flex-col gap-y-6 max-w-[250px]">
@@ -10,6 +11,7 @@ const BooksSearchPanel = () => {
       {refineLists.map((refineList) => (
         <RefineList {...refineList} key={refineList.attribute} />
       ))}
+      <Rating />
     </div>
   );
 };

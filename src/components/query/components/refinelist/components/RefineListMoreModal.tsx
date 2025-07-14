@@ -3,7 +3,6 @@ import { RefinementListItem } from "instantsearch.js/es/connectors/refinement-li
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger
@@ -23,7 +22,7 @@ const RefineListMoreModal = ({ items, title, onClickItem }: RefineListMoreModalP
     <>
       <Dialog open={open} onOpenChange={(change) => setOpen(change)}>
         <DialogTrigger>
-          <h2 className="text-sm cursor-pointer underline underline-offset-2 text-secondary">Mostrar más</h2>
+          <p className="text-sm cursor-pointer underline underline-offset-2 text-secondary">Mostrar más</p>
         </DialogTrigger>
         <DialogContent className="lg:min-w-max">
           <DialogHeader>

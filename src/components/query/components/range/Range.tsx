@@ -1,45 +1,36 @@
 "use client";
 import React from "react";
-import { useRange } from "react-instantsearch-core";
-import { Slider } from "@/components/ui/slider";
+import { Slider } from "@/components/ui/components/slider/slider";
 import PanelItemWrapper from "../panel/components/PanelItemWrapper";
-import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/components/form/form";
 import { Input } from "@/components/ui/components/input/input";
 import { isBetween } from "@/utils/number/isBetween";
+import usePersonalizedRange, { usePersonalizedRangeProps } from "./hooks/usePersonalizedRange";
 
 type RangeProps = {
-  attribute: string;
   title: string;
-};
+} & Pick<usePersonalizedRangeProps, "attribute">;
 
 const Range = ({ attribute, title }: RangeProps) => {
-  const { range, refine, start, canRefine } = useRange({
-    attribute
-  });
-  const { min, max } = range;
-
-  const valueMin = !start[0] || start[0] === -Infinity ? min : start[0];
-  const valueMax = !start[1] || start[1] === Infinity ? max : start[1];
-
-  const form = useForm({
-    defaultValues: {
-      min: valueMin!,
-      max: valueMax!
-    }
-  });
-  const watchMin = form.watch("min");
-  const watchMax = form.watch("max");
+  const {
+    watchMin,
+    watchMax,
+    form,
+    range: { min, max },
+    canRefine,
+    refine
+  } = usePersonalizedRange({ attribute });
 
   if (!min || !max) return null;
 
   return (
     <PanelItemWrapper title={title}>
       <div className="flex flex-row justify-between text-sm">
-        <p>Min: ${watchMin}</p>
-        <p>Max: ${watchMax}</p>
+        <p>Min: {watchMin}</p>
+        <p>Max: {watchMax}</p>
       </div>
       <Slider
+        data-testid="slider"
         disabled={!canRefine}
         min={min}
         max={max}
@@ -66,9 +57,10 @@ const Range = ({ attribute, title }: RangeProps) => {
                       className="grow"
                       placeholder={"Min"}
                       {...register}
+                      disabled={!canRefine}
                       onChange={(event) => {
                         if (!event.target.value || !isBetween(Number(event.target.value), min, max)) return;
-                        refine([Number(event.target.value), watchMax]);
+                        refine([Number(event.target.value), Number(watchMax)]);
                         register.onChange(event);
                       }}
                     />
@@ -90,9 +82,10 @@ const Range = ({ attribute, title }: RangeProps) => {
                       className="grow"
                       placeholder={"Max"}
                       {...register}
+                      disabled={!canRefine}
                       onChange={(event) => {
                         if (!event.target.value || !isBetween(Number(event.target.value), min, max)) return;
-                        refine([watchMin, Number(event.target.value)]);
+                        refine([Number(watchMin), Number(event.target.value)]);
                         register.onChange(event);
                       }}
                     />
