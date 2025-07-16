@@ -11,6 +11,7 @@ export type StateToRouteRatingProp = {
 
 export type StateToRouteProp = {
   books_index: {
+    query?: string;
     refinementList?: StateToRouteRefineListProp;
     range?: StateToRouteRangeProp;
     ratingMenu?: StateToRouteRatingProp;

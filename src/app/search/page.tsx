@@ -1,10 +1,14 @@
 import React from "react";
-import { Panel } from "@/components/query";
+import { Panel, Search, Hits } from "@/components/query";
 export const dynamic = "force-dynamic";
 const SearchPage = () => {
   return (
-    <div>
+    <div className="flex flex-row w-full gap-x-4">
       <Panel />
+      <div className=" flex flex-col flex-1 gap-y-4">
+        <Search />
+        <Hits />
+      </div>
     </div>
   );
 };

@@ -32,7 +32,7 @@ const AppSidebar = () => {
             <SidebarSeparator />
             <SidebarAccount />
             <SidebarSeparator />
-            <SearchInput onSearch={() => {}} />
+            <SearchInput />
             <SidebarSeparator />
             <div className="flex flex-col w-full gap-y-6 flex-1 justify-center-safe pb-40 ">
               {linksMobile.map((link, index) => (

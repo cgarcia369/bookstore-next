@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { GiBookCover } from "react-icons/gi";
 import HeadLineOpinions from "./HeadLineOpinions";
 
@@ -15,17 +14,19 @@ const HeadLineRightSide = () => {
           Encuentralo en <span className="font-(family-name:--font-playwrite-hu) text-secondary">Bookstore</span>
         </h2>
         <h3 className="text-xl mt-9 font-light">Encuentra los libros que amas y descubre nuevos favoritos</h3>
-        <div>
+        <form action="/search" method="GET">
           <input
             className="outline-none px-4 py-2 border-gray-700 border rounded lg:mr-10 min-w-full lg:min-w-[300px] mt-4 lg:mt-0"
             placeholder="Buscar un libro"
+            name="q"
           />
-          <Link href="/catalogo">
-            <button className="cursor-pointer mt-10 p-2 bg-(--secondary) text-(--primary) rounded text-lg hover:scale-125 transition shadow-2xl">
-              Buscar
-            </button>
-          </Link>
-        </div>
+          <button
+            type="submit"
+            className="cursor-pointer mt-10 p-2 bg-(--secondary) text-(--primary) rounded text-lg hover:scale-125 transition shadow-2xl"
+          >
+            Buscar
+          </button>
+        </form>
       </div>
       <HeadLineOpinions />
     </div>

@@ -72,8 +72,13 @@ describe("Rating", () => {
     const button = screen.getByRole("link", {
       name: /atrás/i
     });
+    const buttonStar = screen.getByRole("link", {
+      name: /4 y superior/i
+    });
 
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveAttribute("href", starsMock[0].value);
+    for (const el of [button, buttonStar]) {
+      expect(el).toBeInTheDocument();
+      expect(el).toHaveAttribute("href", starsMock[0].value);
+    }
   });
 });

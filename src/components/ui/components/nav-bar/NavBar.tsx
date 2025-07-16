@@ -20,7 +20,7 @@ const NavBar = () => {
             <NavBarLeftSideItem key={index} {...link} />
           ))}
         </div>
-        <SearchInput className="hidden lg:flex" onSearch={() => {}} />
+        <SearchInput className="hidden lg:flex" />
         <div className="gap-x-4 lg:gap-x-12 flex mr-4 lg:mr-0">
           <NavBarRightSideItem url={""} text="Cuenta" icon={<MdOutlineAccountCircle />} />
           <NavBarRightSideItem url={""} text="Carrito" icon={<TiShoppingCart />} />

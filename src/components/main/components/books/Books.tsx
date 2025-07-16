@@ -1,6 +1,6 @@
 import React from "react";
 import { getPopularBooksQuery } from "@/components/main/api/book";
-import BooksItem from "./BooksItem";
+import BookItem from "../../../ui/components/book-item/BookItem";
 import {
   Carousel,
   CarouselItem,
@@ -24,11 +24,12 @@ const Books = async () => {
         <CarouselContent className="w-full gap-x-4">
           {booksResult.map((book) => (
             <CarouselItem className="basis-[200px]" key={book.id}>
-              <BooksItem
+              <BookItem
                 key={book.id}
                 {...book}
                 author={book.authorsBooks.map((author) => author.author.name)}
                 coverUrl={book.imageUrl}
+                pageLink={""}
               />
             </CarouselItem>
           ))}
