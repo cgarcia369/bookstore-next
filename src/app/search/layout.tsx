@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import { InstantSearch } from "@/components/query";
+import { InstantSearch } from "@/modules/query";
 
 const SearchLayout = ({ children }: { children: ReactNode }) => {
   return (

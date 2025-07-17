@@ -3,9 +3,9 @@ import { Geist, Geist_Mono, Playwrite_HU } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
-import NavBar from "@/components/ui/components/nav-bar/NavBar";
-import Footer from "@/components/ui/components/footer/Footer";
-import AppSidebar from "@/components/ui/components/side-bar/Sidebar";
+import NavBar from "@/components/layout/nav-bar/NavBar";
+import Footer from "@/components/ui/footer/Footer";
+import AppSidebar from "@/components/layout/side-bar/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

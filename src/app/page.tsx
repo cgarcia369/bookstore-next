@@ -1,4 +1,4 @@
-import { Books, Categories, Coupon, HeadLine, MustRead } from "@/components/main";
+import { Books, Categories, Coupon, HeadLine, MustRead } from "@/modules/main";
 
 export default function Home() {
   return (
