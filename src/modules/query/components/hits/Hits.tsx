@@ -11,10 +11,10 @@ const Hits = () => {
     <>
       <div
         className={clsx(
-          "grid gap-8  items-center",
+          "grid gap-8 items-center",
           hits.length > 5
             ? "grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] justify-center"
-            : "grid-cols-[repeat(auto-fit,_minmax(180px,_200px))]"
+            : "grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] md:grid-cols-[repeat(auto-fit,_minmax(180px,_200px))]"
         )}
       >
         {hits.map((hit) => (

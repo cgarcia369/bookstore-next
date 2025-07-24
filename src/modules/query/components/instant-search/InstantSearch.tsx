@@ -13,6 +13,9 @@ const InstantSearch = ({ children }: { children: ReactNode }) => {
       <InstantSearchNext<UiState, RouteState>
         searchClient={algoliaClient}
         indexName={algoliaMainIndex}
+        future={{
+          preserveSharedStateOnUnmount: true
+        }}
         routing={{
           stateMapping: {
             routeToState: (routeState): UiState => {

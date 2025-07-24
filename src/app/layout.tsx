@@ -36,7 +36,7 @@ export default function RootLayout({
         <ThemeProvider>
           <NavBar />
           <AppSidebar />
-          {children}
+          <div className="flex flex-col w-full min-h-dvh">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

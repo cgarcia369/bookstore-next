@@ -6,7 +6,10 @@ import { ratingObj } from "@/modules/query/constants/ratingItems";
 import PanelItemWrapper from "../panel/components/PanelItemWrapper";
 import Link from "next/link";
 
-const Rating = () => {
+type RatingProps = {
+  className?: string;
+};
+const Rating = ({ className }: RatingProps) => {
   const { items, canRefine, createURL } = useRatingMenu({
     attribute: ratingObj.rating.attribute
   });
@@ -14,7 +17,7 @@ const Rating = () => {
   const someItemIsRefined = items.find((x) => x.isRefined);
   const itemsFixed = someItemIsRefined ? items.filter((x) => x.isRefined) : items;
   return (
-    <PanelItemWrapper title={ratingObj.rating.title}>
+    <PanelItemWrapper className={className} title={ratingObj.rating.title}>
       {someItemIsRefined && (
         <Link href={createURL(someItemIsRefined.value)}>
           <div className="text-sm cursor-pointer">{"<"} Atrás</div>
