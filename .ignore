@@ -1,0 +1,4 @@
+package-lock.json
+prisma/
+src/generated/
+pnpm-lock.yaml
