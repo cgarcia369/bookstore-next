@@ -3,18 +3,8 @@ import { beforeAll, expect } from "vitest";
 import { usePagination } from "react-instantsearch-core";
 import { render, screen } from "@testing-library/react";
 import PaginationSearch from "@/modules/query/components/pagination/Pagination";
+import { usePaginationMock } from "./mocks/usePagination.mock";
 
-const usePaginationMock: ReturnType<typeof usePagination> = {
-  refine: vi.fn(),
-  createURL: () => "",
-  isLastPage: false,
-  canRefine: false,
-  currentRefinement: 0,
-  pages: [0, 1],
-  isFirstPage: true,
-  nbHits: 100,
-  nbPages: 2
-};
 describe("Pagination", () => {
   beforeAll(() => {
     vi.mock("react-instantsearch-core", async () => {

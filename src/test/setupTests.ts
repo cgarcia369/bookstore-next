@@ -1,5 +1,4 @@
 import "@testing-library/jest-dom/vitest";
-
 // Resize observer is needed for things like popover but isn't available in the Node environment that is vitest
 class ResizeObserver {
   observe() {}

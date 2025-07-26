@@ -3,7 +3,6 @@ import { SortComponentProps } from "./types/sort.types";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTrigger,
   DialogTitle,

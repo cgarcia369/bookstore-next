@@ -4,12 +4,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import SearchBox from "@/modules/query/components/search-box/SearchBox";
 import { expect } from "vitest";
 import { userEvent } from "@testing-library/user-event";
-const useSearchBoxMock: ReturnType<typeof useSearchBox> = {
-  query: "",
-  clear: vi.fn(),
-  refine: vi.fn(),
-  isSearchStalled: false
-};
+import { useSearchBoxMock } from "./mocks/useSearchBox.mock";
 describe("SearchBox", () => {
   beforeAll(() => {
     vi.mock("react-instantsearch-core", async () => {

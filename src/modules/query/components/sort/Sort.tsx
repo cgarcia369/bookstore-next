@@ -14,7 +14,7 @@ const Sort = () => {
     }))
   });
   const isMobile = useIsMobile();
-  if (!isMobile) {
+  if (!isMobile && false) {
     return <SortDesktop {...sort} />;
   }
   return <SortDevice {...sort} />;

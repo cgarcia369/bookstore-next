@@ -9,6 +9,7 @@ const SearchPage = () => {
         <div className="flex flex-row w-full gap-x-2 md:gap-x-4">
           <Search />
           <Sort />
+          {/* TODO: Test his component */}
           <PanelDevice />
         </div>
         <Hits />

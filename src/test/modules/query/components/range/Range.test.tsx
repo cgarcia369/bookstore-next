@@ -4,18 +4,8 @@ import Range from "@/modules/query/components/range/Range";
 import { useRange } from "react-instantsearch-core";
 import { beforeAll } from "vitest";
 import { userEvent } from "@testing-library/user-event";
+import { useRangeMock } from "./mocks/useRange.mock";
 
-const useRangeMock: ReturnType<typeof useRange> = {
-  refine: vi.fn(),
-  range: { min: undefined, max: undefined },
-  canRefine: false,
-  format: {
-    from: vi.fn(),
-    to: vi.fn()
-  },
-  sendEvent: vi.fn(),
-  start: [undefined, undefined]
-};
 describe("Range tests", () => {
   beforeAll(() => {
     vi.mock("react-instantsearch-core", async () => {
