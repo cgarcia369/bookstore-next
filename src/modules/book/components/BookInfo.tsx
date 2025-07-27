@@ -37,7 +37,7 @@ const properties: {
 ];
 const BookInfo = (props: BookInfoProps) => {
   return (
-    <div className="flex flex-col w-full gap-y-10">
+    <div className="flex flex-col gap-y-10">
       <h2 className="text-3xl text-gray-800 font-semibold">Información del libro</h2>
       <div className="flex flex-col gap-4">
         {properties.map((property) => (

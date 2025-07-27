@@ -7,7 +7,7 @@ type BookPriceProps = Pick<Book, "price" | "id">;
 
 const BookPrice = ({ price, id }: BookPriceProps) => {
   return (
-    <div className="flex items-center justify-between w-full bg-primary text-white p-10 my-15 rounded-2xl">
+    <div className="flex items-center justify-between w-full bg-primary text-white p-10 my-15 rounded shadow-2xl">
       <div className="flex flex-col justify-center items-center">
         <p className="text-xl">Precio:</p>
         <p className="text-3xl font-bold">$ {price.toFixed(2)}</p>
@@ -17,8 +17,8 @@ const BookPrice = ({ price, id }: BookPriceProps) => {
         <p className="text-xl">Compra segura</p>
       </div>
       <div>
-        <button className="flex justify-center items-center gap-x-1 bg-secondary rounded px-4 py-2 font-semibold text-xl outline-none cursor-pointer hover:scale-110 transition-all">
-          <TiShoppingCart className="fill-current text-white w-[30px] h-[30px]" />
+        <button className="flex justify-center items-center gap-x-1 bg-secondary rounded px-4 py-2 font-semibold text-base outline-none cursor-pointer hover:scale-110 transition-all">
+          <TiShoppingCart className="fill-current text-white w-[25px] h-[25px]" />
           Agregar
         </button>
       </div>

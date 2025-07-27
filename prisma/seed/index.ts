@@ -4,6 +4,12 @@ import BooksRequest from "./booksrequest.json";
 import prisma from "@/lib/prisma";
 import slugify from "slugify";
 import { algoliaServer } from "@/lib/algoliaServer";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  baseURL: "https://api.deepseek.com",
+  apiKey: process.env.DEEPSEEK_API
+});
 
 const translateText = async (text: string): Promise<string> => {
   return await translate(text, "es");
@@ -15,6 +21,18 @@ const flushDb = async () => {
     `
   ]);
 };
+const createAuthorBiography = async (author_name: string) => {
+  const completion = await openai.chat.completions.create({
+    messages: [
+      {
+        role: "system",
+        content: `Crea una biografia de el siguiente autor, si no tienes informacion del autor inventa una, el resultado debe contener uas 100 palabras. autor: ${author_name}`
+      }
+    ],
+    model: "deepseek-chat"
+  });
+  return completion.choices[0].message.content;
+};
 const createAuthorsIfNotExists = (authors: string[]) => {
   return Promise.all(
     authors.map(async (author) => {
@@ -25,7 +43,7 @@ const createAuthorsIfNotExists = (authors: string[]) => {
         return existingAuthor.id;
       }
       const newAuthor = await prisma.author.create({
-        data: { name: author }
+        data: { name: author, biography: (await createAuthorBiography(author)) || "" }
       });
       return newAuthor.id;
     })

@@ -13,7 +13,7 @@ import { getCategorySlug } from "@/modules/main/utils/getCategorySlug";
 const Categories = async () => {
   const categories = await getPopularCategoriesQuery();
   return (
-    <div className="my-5 lg:my-10 general-margin">
+    <div className="my-5 lg:my-5 general-margin">
       <h2 className="my-10 text-2xl text-center text-primary">Categorías Populares</h2>
       <Carousel className="w-full">
         <CarouselContent className="w-full">

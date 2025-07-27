@@ -1,10 +1,7 @@
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel/carousel";
 import MustReadBook from "./MustReadBook";
-import bookOneSrc from "@/public/img/mustread/book1.jpg";
-import bookTwoSrc from "@/public/img/mustread/book2.jpg";
-import bookThreeSrc from "@/public/img/mustread/book3.jpg";
-const images = [bookOneSrc, bookTwoSrc, bookThreeSrc];
+const images = ["/img/mustread/book1.jpg", "/img/mustread/book2.jpg", "/img/mustread/book3.jpg"];
 const MustReadDevice = () => {
   return (
     <Carousel className="md:hidden w-full mx-auto mt-20 z-20">

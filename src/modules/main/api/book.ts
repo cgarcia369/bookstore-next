@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import { unstable_cache } from "next/cache";
 
 // TODO: not use this export directly in the components but import from index.ts
+// TODO: remove starRating as db is now saving it by default
 
 export const getPopularBooks = async () => {
   const groupedReviews = await prisma.review.groupBy({

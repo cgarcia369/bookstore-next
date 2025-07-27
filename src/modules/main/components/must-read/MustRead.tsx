@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import imgSrc from "@/public/img/mustread/background.jpg";
 import { Alumni_Sans } from "next/font/google";
 import MustReadDevice from "./MustReadDevice";
 import MustReadDesktop from "./MustReadDesktop";
@@ -19,9 +18,8 @@ const MustRead = () => {
       <MustReadDesktop />
       <MustReadDevice />
       <Image
-        src={imgSrc}
+        src="/img/mustread/background.jpg"
         alt={"must read background"}
-        placeholder="blur"
         quality={100}
         fill
         sizes="100dvw"

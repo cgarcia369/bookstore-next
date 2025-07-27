@@ -2213,16 +2213,19 @@ export namespace Prisma {
   export type AuthorMinAggregateOutputType = {
     id: string | null
     name: string | null
+    biography: string | null
   }
 
   export type AuthorMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    biography: string | null
   }
 
   export type AuthorCountAggregateOutputType = {
     id: number
     name: number
+    biography: number
     _all: number
   }
 
@@ -2230,16 +2233,19 @@ export namespace Prisma {
   export type AuthorMinAggregateInputType = {
     id?: true
     name?: true
+    biography?: true
   }
 
   export type AuthorMaxAggregateInputType = {
     id?: true
     name?: true
+    biography?: true
   }
 
   export type AuthorCountAggregateInputType = {
     id?: true
     name?: true
+    biography?: true
     _all?: true
   }
 
@@ -2318,6 +2324,7 @@ export namespace Prisma {
   export type AuthorGroupByOutputType = {
     id: string
     name: string
+    biography: string
     _count: AuthorCountAggregateOutputType | null
     _min: AuthorMinAggregateOutputType | null
     _max: AuthorMaxAggregateOutputType | null
@@ -2340,6 +2347,7 @@ export namespace Prisma {
   export type AuthorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    biography?: boolean
     authorsBooks?: boolean | Author$authorsBooksArgs<ExtArgs>
     wishlists?: boolean | Author$wishlistsArgs<ExtArgs>
     _count?: boolean | AuthorCountOutputTypeDefaultArgs<ExtArgs>
@@ -2348,19 +2356,22 @@ export namespace Prisma {
   export type AuthorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    biography?: boolean
   }, ExtArgs["result"]["author"]>
 
   export type AuthorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    biography?: boolean
   }, ExtArgs["result"]["author"]>
 
   export type AuthorSelectScalar = {
     id?: boolean
     name?: boolean
+    biography?: boolean
   }
 
-  export type AuthorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["author"]>
+  export type AuthorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "biography", ExtArgs["result"]["author"]>
   export type AuthorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     authorsBooks?: boolean | Author$authorsBooksArgs<ExtArgs>
     wishlists?: boolean | Author$wishlistsArgs<ExtArgs>
@@ -2378,6 +2389,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      biography: string
     }, ExtArgs["result"]["author"]>
     composites: {}
   }
@@ -2805,6 +2817,7 @@ export namespace Prisma {
   interface AuthorFieldRefs {
     readonly id: FieldRef<"Author", 'String'>
     readonly name: FieldRef<"Author", 'String'>
+    readonly biography: FieldRef<"Author", 'String'>
   }
     
 
@@ -16375,7 +16388,8 @@ export namespace Prisma {
 
   export const AuthorScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    biography: 'biography'
   };
 
   export type AuthorScalarFieldEnum = (typeof AuthorScalarFieldEnum)[keyof typeof AuthorScalarFieldEnum]
@@ -16621,6 +16635,7 @@ export namespace Prisma {
     NOT?: AuthorWhereInput | AuthorWhereInput[]
     id?: StringFilter<"Author"> | string
     name?: StringFilter<"Author"> | string
+    biography?: StringFilter<"Author"> | string
     authorsBooks?: AuthorBookListRelationFilter
     wishlists?: WishlistListRelationFilter
   }
@@ -16628,6 +16643,7 @@ export namespace Prisma {
   export type AuthorOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    biography?: SortOrder
     authorsBooks?: AuthorBookOrderByRelationAggregateInput
     wishlists?: WishlistOrderByRelationAggregateInput
   }
@@ -16638,6 +16654,7 @@ export namespace Prisma {
     AND?: AuthorWhereInput | AuthorWhereInput[]
     OR?: AuthorWhereInput[]
     NOT?: AuthorWhereInput | AuthorWhereInput[]
+    biography?: StringFilter<"Author"> | string
     authorsBooks?: AuthorBookListRelationFilter
     wishlists?: WishlistListRelationFilter
   }, "id" | "name">
@@ -16645,6 +16662,7 @@ export namespace Prisma {
   export type AuthorOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    biography?: SortOrder
     _count?: AuthorCountOrderByAggregateInput
     _max?: AuthorMaxOrderByAggregateInput
     _min?: AuthorMinOrderByAggregateInput
@@ -16656,6 +16674,7 @@ export namespace Prisma {
     NOT?: AuthorScalarWhereWithAggregatesInput | AuthorScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Author"> | string
     name?: StringWithAggregatesFilter<"Author"> | string
+    biography?: StringWithAggregatesFilter<"Author"> | string
   }
 
   export type AuthorBookWhereInput = {
@@ -17394,6 +17413,7 @@ export namespace Prisma {
   export type AuthorCreateInput = {
     id?: string
     name: string
+    biography: string
     authorsBooks?: AuthorBookCreateNestedManyWithoutAuthorInput
     wishlists?: WishlistCreateNestedManyWithoutAuthorInput
   }
@@ -17401,6 +17421,7 @@ export namespace Prisma {
   export type AuthorUncheckedCreateInput = {
     id?: string
     name: string
+    biography: string
     authorsBooks?: AuthorBookUncheckedCreateNestedManyWithoutAuthorInput
     wishlists?: WishlistUncheckedCreateNestedManyWithoutAuthorInput
   }
@@ -17408,6 +17429,7 @@ export namespace Prisma {
   export type AuthorUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     authorsBooks?: AuthorBookUpdateManyWithoutAuthorNestedInput
     wishlists?: WishlistUpdateManyWithoutAuthorNestedInput
   }
@@ -17415,6 +17437,7 @@ export namespace Prisma {
   export type AuthorUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     authorsBooks?: AuthorBookUncheckedUpdateManyWithoutAuthorNestedInput
     wishlists?: WishlistUncheckedUpdateManyWithoutAuthorNestedInput
   }
@@ -17422,16 +17445,19 @@ export namespace Prisma {
   export type AuthorCreateManyInput = {
     id?: string
     name: string
+    biography: string
   }
 
   export type AuthorUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
   }
 
   export type AuthorUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
   }
 
   export type AuthorBookCreateInput = {
@@ -18221,16 +18247,19 @@ export namespace Prisma {
   export type AuthorCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    biography?: SortOrder
   }
 
   export type AuthorMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    biography?: SortOrder
   }
 
   export type AuthorMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    biography?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -19944,12 +19973,14 @@ export namespace Prisma {
   export type AuthorCreateWithoutAuthorsBooksInput = {
     id?: string
     name: string
+    biography: string
     wishlists?: WishlistCreateNestedManyWithoutAuthorInput
   }
 
   export type AuthorUncheckedCreateWithoutAuthorsBooksInput = {
     id?: string
     name: string
+    biography: string
     wishlists?: WishlistUncheckedCreateNestedManyWithoutAuthorInput
   }
 
@@ -20019,12 +20050,14 @@ export namespace Prisma {
   export type AuthorUpdateWithoutAuthorsBooksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     wishlists?: WishlistUpdateManyWithoutAuthorNestedInput
   }
 
   export type AuthorUncheckedUpdateWithoutAuthorsBooksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     wishlists?: WishlistUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
@@ -21175,12 +21208,14 @@ export namespace Prisma {
   export type AuthorCreateWithoutWishlistsInput = {
     id?: string
     name: string
+    biography: string
     authorsBooks?: AuthorBookCreateNestedManyWithoutAuthorInput
   }
 
   export type AuthorUncheckedCreateWithoutWishlistsInput = {
     id?: string
     name: string
+    biography: string
     authorsBooks?: AuthorBookUncheckedCreateNestedManyWithoutAuthorInput
   }
 
@@ -21256,12 +21291,14 @@ export namespace Prisma {
   export type AuthorUpdateWithoutWishlistsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     authorsBooks?: AuthorBookUpdateManyWithoutAuthorNestedInput
   }
 
   export type AuthorUncheckedUpdateWithoutWishlistsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
     authorsBooks?: AuthorBookUncheckedUpdateManyWithoutAuthorNestedInput
   }
 

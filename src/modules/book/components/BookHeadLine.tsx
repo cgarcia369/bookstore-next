@@ -13,7 +13,13 @@ type BookHeadLineProps = Pick<Book, "price" | "title" | "imageUrl" | "synopsis" 
 const BookHeadLine = ({ imageUrl, title, authors, synopsis, ...rest }: BookHeadLineProps) => {
   return (
     <div className="flex flex-row ">
-      <Image className="h-[400px] w-[250px]" width={500} height={500} alt="Book image" src={imageUrl} />
+      <Image
+        className="h-[400px] w-[250px] shadow-2xl rounded"
+        width={500}
+        height={500}
+        alt="Book image"
+        src={imageUrl}
+      />
       <div className="flex-1 ml-20 ">
         <h1 className={`text-4xl text-gray-800 ${oswaldfont.className}`}>{title}</h1>
         <h2 className="text-lg text-gray-500 mt-3">{authors.map((x) => x.name).join(", ")}</h2>

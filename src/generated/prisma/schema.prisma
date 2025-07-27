@@ -9,8 +9,9 @@ datasource db {
 }
 
 model Author {
-  id   String @id @default(uuid())
-  name String @unique @db.VarChar(200)
+  id        String @id @default(uuid())
+  name      String @unique @db.VarChar(200)
+  biography String @db.Text
 
   authorsBooks AuthorBook[]
   wishlists    Wishlist[]
