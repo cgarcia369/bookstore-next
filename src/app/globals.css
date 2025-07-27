@@ -140,3 +140,6 @@
 .general-padding {
   @apply px-4 md:px-8 lg:px-16 xl:px-32
 }
+.general-vertical-padding {
+  @apply mb-4 lg:mb-0 py-2 lg:py-10
+}

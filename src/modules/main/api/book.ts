@@ -1,6 +1,8 @@
 import prisma from "@/lib/prisma";
 import { unstable_cache } from "next/cache";
 
+// TODO: not use this export directly in the components but import from index.ts
+
 export const getPopularBooks = async () => {
   const groupedReviews = await prisma.review.groupBy({
     by: ["bookId"],
@@ -46,10 +48,11 @@ export const getPopularBooks = async () => {
     };
   });
 };
+
 export const getPopularBooksKey = "get-popular-books";
 
 export const getPopularBooksQuery = async () => {
-  return unstable_cache(() => getPopularBooks(), [getPopularBooksKey], {
+  return unstable_cache(getPopularBooks, [getPopularBooksKey], {
     revalidate: 60 * 60 * 24
   })();
 };
